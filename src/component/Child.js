@@ -1,22 +1,8 @@
-import React,{useState} from 'react'
+import React from 'react'
 
-
-const Child=(props)=>{
-    const[id,setId]=useState();
-    // const[data1,setData]=useState()
-    console.log(props.data)
-
-    
-        const value=props.data.filter((row)=>{
-            if(id){ 
-                            console.log(id)
-                            return id!==row.item
-                            
-                
-                        }
-                       })
-                       console.log(value)
-     props.itemData(value)
+import "./style.css"
+const Child=({data,removeItm})=>{
+   
      
     
     
@@ -26,12 +12,19 @@ const Child=(props)=>{
 
     return(<>
     <h1>
-        {props.data.map((row)=>{
+    <h1>child component</h1>
+        {data.map((row)=>{
             return(<>
-            <h1>
-                item:{row.item} price:{row.price}<button onClick={()=>{setId(row.item)}}>remove</button>
+            <div className='child'>
+
+            
+            <ul>
                 
-            </h1>
+              <li> {row.id} item:{row.item} price:${row.price}<button onClick={()=>{removeItm(row.id)}}>remove</button></li>
+                
+            </ul>
+            </div>
+
             </>)
 
         })  
